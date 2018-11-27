@@ -1,6 +1,6 @@
 iweb for PHP
 
-* 运行最底要求 PHP 版本 5.4 , 建议在 PHP5.6 上运行以获取最佳性能；
+* 运行最底要求 PHP 版本 5.3 , 建议在 PHP5.6 上运行以获取最佳性能；
 * iweb 需要Socket(此为必须),Mysqli(此为必须),libmcrypt等扩展.
 
 功能描述
