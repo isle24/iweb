@@ -5,38 +5,36 @@ ini_set('display_errors', false);
 class config
 {
     static $users = array(
-        //Ваш пользователь со всеми правами
-        //Для изменения доступа у нужной функции замените true на false
-        array("username" => "isle", "password" => "isle0204", "permission" =>             
+        array("username" => "test", "password" => "test", "permission" =>             
             array(
-                "xml_edit" => true, //Страница: ХМЛ редактор
-                "visual_edit" => true, //Страница: Визуальный редактор
-                "gm_manager" => true, //Страница: Главная. ГМ права
-                "kick_role" => true, //Страница: Главная. Кикнуть персонажа
-                "ban" => true, //Страница: Главная. блокировка персонажа\аккаунта\чата
-                "add_gold" => true, //Страница: Персонажи,главная. Выдача голда на акк
-                "level_up" => true, //Страница: Персонажи. Изменение уромня
-                "rename_role" => true, //Страница: Персонажи. Переименование персонажа
-                "teleport" => true, //Страница: Персонажи. Телепорт в ГД
-                "null_exp_sp" => true, //Страница: Персонажи. Обнуление духа и опыта
-                "del_role" => true, //Страница: Персонажи. Удаление персонажа
-                "server_manager" => true, //Страница: Менеджер сервера. Остановка,запуск,рестат сервера
-                "send_msg" => true, //Страница: Менеджер сервера отправка сообщения в чат
-                "send_mail" => true, //Страница отправки почты
-                "settings" => true, //Страница настроек
-                "logs" => true //Страница Логов
+                "xml_edit" => true,
+                "visual_edit" => true, 
+                "gm_manager" => true, 
+                "kick_role" => true, 
+                "ban" => true, 
+                "add_gold" => true, 
+                "level_up" => true,
+                "rename_role" => true,
+                "teleport" => true,
+                "null_exp_sp" => true,
+                "del_role" => true, 
+                "server_manager" => true,
+                "send_msg" => true,
+                "send_mail" => true,
+                "settings" => true,
+                "logs" => true
             )
         ),
     );
 	static $access = false;
 	static $accessIP = "";
-	static $site_adr = "http://admin.2iwm.com/iweb";
+	static $site_adr = "http://127.0.o.1/iweb";
 	static $site_title = "IWEB";
 	static $widgetChat = "on";
 	static $logActions = true;
 	static $db_host = "172.27.64.7";
 	static $db_user = "wm";
-	static $db_password = "412a9a2bd127";//412a9a2bd127
+	static $db_password = "123456";
 	static $db_table = "wm";
 	static $db_charset = "utf8";
 	static $titleMail = " GM";
@@ -53,7 +51,7 @@ class config
 	static $chatFile = "/root/pwserver/logs/world2.chat";
 	static $ssh_host = "localhost";
 	static $ssh_user = "root";
-	static $ssh_pass = "Kyl199424";
+	static $ssh_pass = "123456";
 	static $ssh_port = "22";
 	static $server = array(
         "logservice" => array(
