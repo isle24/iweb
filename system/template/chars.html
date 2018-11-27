@@ -1,0 +1,162 @@
+<h5>角色管理</h5><hr>
+<div class="charsList dark-form">
+    <div class="row">
+        <div class="col-sm-6">
+            <h6>职业面板</h6>
+            <table class="table table-dark">
+                <tr>
+                    <td width="60%">16 - 武侠</td>
+                    <td>
+                        <a class="badge badge-primary" href="{adr}/?controller=editor&page=xml&id=16">XML</a>
+                        <a class="badge badge-success" href="{adr}/?controller=editor&id=16">属性面板</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>19 - 法师</td>
+                    <td>
+                        <a class="badge badge-primary" href="{adr}/?controller=editor&page=xml&id=19">XML</a>
+                        <a class="badge badge-success" href="{adr}/?controller=editor&id=19">属性面板</a></td>
+                </tr>
+                <tr>
+                    <td>24 - 妖精</td>
+                    <td>
+                        <a class="badge badge-primary" href="{adr}/?controller=editor&page=xml&id=24">XML</a>
+                        <a class="badge badge-success" href="{adr}/?controller=editor&id=24">属性面板</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>23 - 妖兽</td>
+                    <td>
+                        <a class="badge badge-primary" href="{adr}/?controller=editor&page=xml&id=23">XML</a>
+                        <a class="badge badge-success" href="{adr}/?controller=editor&id=23">属性面板</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>31 - 羽灵</td>
+                    <td><a class="badge badge-primary" href="{adr}/?controller=editor&page=xml&id=31">XML</a>
+                        <a class="badge badge-success" href="{adr}/?controller=editor&id=31">属性面板</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>28 - 羽芒</td>
+                    <td>
+                        <a class="badge badge-primary" href="{adr}/?controller=editor&page=xml&id=28">XML</a>
+                        <a class="badge badge-success" href="{adr}/?controller=editor&id=28">属性面板</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>27 - 刺客</td>
+                    <td>
+                        <a class="badge badge-primary" href="{adr}/?controller=editor&page=xml&id=27">XML</a>
+                        <a class="badge badge-success" href="{adr}/?controller=editor&id=27">属性面板</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>20 - 巫师</td>
+                    <td>
+                        <a class="badge badge-primary" href="{adr}/?controller=editor&page=xml&id=20">XML</a>
+                        <a class="badge badge-success" href="{adr}/?controller=editor&id=20">属性面板</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>18 - 剑灵</td>
+                    <td>
+                        <a class="badge badge-primary" href="{adr}/?controller=editor&page=xml&id=18">XML</a>
+                        <a class="badge badge-success" href="{adr}/?controller=editor&id=18">属性面板</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>17 - 魅灵</td>
+                    <td>
+                        <a class="badge badge-primary" href="{adr}/?controller=editor&page=xml&id=17">XML</a>
+                        <a class="badge badge-success" href="{adr}/?controller=editor&id=17">属性面板</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>21 - 月仙</td>
+                    <td><a class="badge badge-primary" href="{adr}/?controller=editor&page=xml&id=21">XML</a>
+                        <a class="badge badge-success" href="{adr}/?controller=editor&id=21">属性面板</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>22 - 夜影</td>
+                    <td>
+                        <a class="badge badge-primary" href="{adr}/?controller=editor&page=xml&id=22">XML</a>
+                        <a class="badge badge-success" href="{adr}/?controller=editor&id=22">属性面板</a>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <samp>
+            </samp>
+            <div class="card" style="background: #343d3f">
+                <div class="card-body">
+                    <p class="card-text">
+                         更改后，保存字符，输入命令。
+                        <br><kbd>{save_gamedbg}</kbd><br>
+                        这应该在完成对起始字符的更改后完成。 <br>
+                        <b>对于普通人物，你不需要这样做！</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <h6>编辑人物</h6>
+            <div class="form-group">
+                <input type="text" class="form-control" name="charIDEdit" placeholder="角色ID">
+            </div>
+            <button class="btn btn-sm btn-success" onclick="goEdit('xml')">XML</button>
+            <button class="btn btn-sm btn-info" onclick="goEdit('visual')">属性面板</button>
+
+            <br>
+            <hr>
+
+            <h6>更改级别</h6>
+            <div class="form-group">
+                <input type="text" class="form-control" name="charIDLevelUp" placeholder="角色ID">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="charLevelUp" placeholder="数值">
+            </div>
+            <button class="btn btn-sm btn-success" onclick="goLevelUp()">确定</button>
+
+            <br>
+            <hr>
+
+            <h6>坐标</h6>
+            <div class="form-group">
+                <input type="text" class="form-control" name="charIDFunc" placeholder="角色ID">
+            </div>
+            <button class="btn btn-sm btn-success" onclick="goTeleport()">传送到大地图</button>
+            <button class="btn btn-sm btn-info" onclick="goNullChar()">清除元神和经验</button>
+            <button class="btn btn-sm btn-warning" onclick="goDelChar()">删除角色</button>
+
+            <br>
+            <hr>
+
+            <h6>更改角色名称</h6>
+            <div class="form-group">
+                <input type="text" class="form-control" name="renameIDRole" placeholder="角色ID">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="renameOldNameRole" placeholder="原名称">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="renameNewNameRole" placeholder="新名称">
+            </div>
+            <button class="btn btn-sm btn-success" onclick="goRenameRole()">确定</button>
+
+            <br>
+            <hr>
+
+            <h6>元宝充值</h6>
+            <div class="form-group">
+                <input type="text" class="form-control" name="charIDCash" placeholder="账号ID">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="countCash" placeholder="数量">
+            </div>
+            <button class="btn btn-sm btn-success" onclick="goAddCash()">确定</button>
+        </div>
+    </div>
+</div>

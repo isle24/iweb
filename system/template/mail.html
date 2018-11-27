@@ -1,0 +1,171 @@
+<h5>邮件发送</h5>
+<hr>
+
+
+
+<div class="dark-form">
+    <h6>最近发送</h6>
+
+    <div class="btn-group col-md-12">
+            <select class="selectpicker form-control" data-live-search="true" name="lastItems">
+                {sendingItems}
+            </select>
+            <button class="btn btn-success btn-sm col-md-3" onclick="selectItemMail()">选择</button>
+    </div>
+
+    <hr>
+
+    <h6>邮件</h6>
+    <div class="form-group row">
+        <label for="idChar" class="col-sm-2 col-form-label col-form-label-sm">角色ID</label>
+        <div class="col-sm-10">
+            <input title="test" data-toggle="tooltip" type="number" class="form-control form-control-sm" id="idChar"
+                   value="{idChar}">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="idItem" class="col-sm-2 col-form-label col-form-label-sm">物品ID</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control form-control-sm" id="idItem">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="countItem" class="col-sm-2 col-form-label col-form-label-sm">数量</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control form-control-sm" id="countItem" value="1">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="maxCountItem" class="col-sm-2 col-form-label col-form-label-sm">最大数量</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control form-control-sm" id="maxCountItem" value="9999">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="octetItem" class="col-sm-2 col-form-label col-form-label-sm">内容</label>
+        <div class="col-sm-10">
+            <textarea rows="5" class="form-control form-control-sm" id="octetItem"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="prototypeItem" class="col-sm-2 col-form-label col-form-label-sm">权限
+            <button type="button" onclick="modal_mask()" class="btn btn-primary btn-sm" data-toggle="modal"
+                    data-target="#prototypeWin">选择</button>
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control form-control-sm" id="prototypeItem" value="0">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="timeItem" class="col-sm-2 col-form-label col-form-label-sm">发行时间</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control form-control-sm" id="timeItem" value="0">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="maskItem" class="col-sm-2 col-form-label col-form-label-sm">类型</label>
+        <div class="col-sm-10">
+            <select class="form-control form-control-sm" id="maskItem">
+                <option value="0" selected="selected">其他</option>
+                <option value="1">武器</option>
+                <option value="2">头盔</option>
+                <option value="8">披风</option>
+                <option value="16">衣服</option>
+                <option value="64">裤子</option>
+                <option value="128">鞋子</option>
+                <option value="256">护腕</option>
+                <option value="4096">飞行器</option>
+                <option value="1536">戒指</option>
+                <option value="8192">时装:头 </option>
+                <option value="16384">С时装: 衣服</option>
+                <option value="32768">时装: 鞋子</option>
+                <option value="65536">时装: 护腕</option>
+                <option value="8388608">Джин</option>
+                <option value="1048576">Хирка хп</option>
+                <option value="2097152">Хирка мп</option>
+                <option value="262144">天书(Трактат)</option>
+                <option value="524288">表情</option>
+                <option value="33554432">发型</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="moneyItem" class="col-sm-2 col-form-label col-form-label-sm">金币</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control form-control-sm" id="moneyItem" value="0">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="titleItem" class="col-sm-2 col-form-label col-form-label-sm">邮件标题</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control form-control-sm" id="titleItem" value="{titleMail}">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="messageItem" class="col-sm-2 col-form-label col-form-label-sm">邮件内容</label>
+        <div class="col-sm-10">
+            <input title="test" data-toggle="tooltip" type="text" class="form-control form-control-sm" id="messageItem"
+                   value="{messageMail}">
+        </div>
+    </div>
+    <button name="sendMail" class="btn btn-success">发送邮件</button>
+    <button name="sendMailOnline" class="btn btn-primary"> 发送给所有在线的玩家</button>
+</div>
+
+<div class="modal fade" id="prototypeWin" tabindex="-1" role="dialog" aria-labelledby="prototypeLabel"
+     aria-hidden="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title" id="prototypeLabel">Привязка предмета</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="color: #b6babf">
+                <label><input type='checkbox' class='custom-checkbox' name='mask_1' value='1'/>死亡保护
+                    персонажа</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_2' value='2'/> 不可扔掉
+                    выбросить</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_4' value='4'/> 不可出售
+                    продать</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_8' value='8'/> Нельзя
+                    выкинуть</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_16' value='16'/> 不可交易</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_32' value='32'/> 不能强化
+                    улучшить</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_64' value='64'/> Символ
+                    сохранения</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_128' value='128'/> Не поместить на
+                    склад</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_256' value='256'/> Исчезает при выходе
+                    из текущей локации</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_512' value='512'/> Авто использование
+                    при получении</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_1024' value='1024'/> Исчезает при
+                    гибели</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_2048' value='2048'/> Исчезает при
+                    выходе</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_4096' value='4096'/> Нельзя
+                    отремонтировать</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_8192' value='8192'/> Нанесен
+                    урон</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_16384' value='16384'/> Невозможно
+                    поместить на склад учетной записи</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_32768' value='32768'/> Предмет привязан
+                    к персонажу</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_65536' value='65536'/> Можно продать в поисках сокровищ</label><br>
+                <label><input type='checkbox' class='custom-checkbox' name='mask_131072' value='131072'/> Товар со спец покупок</label><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" id="accept" class="btn btn-primary" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+

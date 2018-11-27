@@ -1,0 +1,60 @@
+<h5>游戏聊天</h5>
+<hr>
+
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" onclick="chengeChl(0, 0)" href="javascript:void(0)">全部</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" onclick="chengeChl(1, 0)" href="javascript:void(0)">世界</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" onclick="chengeChl(2, 0)" href="javascript:void(0)">组队</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" onclick="chengeChl(3, 0)" href="javascript:void(0)">帮派</a>
+    </li>
+    <!--<li class="nav-item">-->
+    <!--    <a class="nav-link" onclick="chengeChl(7, 0)" href="javascript:void(0)">交易</a>-->
+    <!--</li>-->
+    <!--<li class="nav-item">-->
+    <!--    <a class="nav-link" onclick="chengeChl(11, 0)" href="javascript:void(0)">附近</a>-->
+    <!--</li>-->
+    <!--<li class="nav-item">-->
+    <!--    <a class="nav-link" onclick="chengeChl(12, 0)" href="javascript:void(0)">号角</a>-->
+    <!--</li>-->
+    <!--    <li class="nav-item">-->
+    <!--    <a class="nav-link" onclick="chengeChl(13, 0)" href="javascript:void(0)">战场</a>-->
+    <!--</li>-->
+    <!--<li class="nav-item">-->
+    <!--    <a class="nav-link" onclick="chengeChl(14, 0)" href="javascript:void(0)">国家</a>-->
+    <!--</li>-->
+    <!--<li class="nav-item">-->
+    <!--    <a class="nav-link" onclick="chengeChl(15, 0)" href="javascript:void(0)">跨服号角</a>-->
+    <!--</li>-->
+    
+</ul>
+
+<div class="boxChat">
+    <div data-target="chatMessage" data-chl="0"></div>
+</div>
+<hr>
+<label><input type="checkbox" name="autoscroll" checked="checked">自动滚屏</label>
+<div class="dark-form">
+    <input class="form-control" type="text" name="chatMsg" placeholder="聊天消息">
+    <button class="btn btn-success float-right col-sm-6" name="sendChatMsg"> 发送消息 </button>
+    <select class="form-control col-sm-6" name="chatChanel">
+        <option value="9">系统</option>
+                <option value="0">普通</option>
+                <option value="1">世界</option>
+                <option value="2">组队</option>
+                <option value="3">帮派</option>
+                <option value="7">交易</option>
+                <option value="11">附近</option>
+                <option value="12">号角</option>
+                <option value="13">战场</option>
+                <option value="14">国家</option>
+                <option value="15">跨服号角</option>
+    </select>
+</div>

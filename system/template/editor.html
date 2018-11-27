@@ -1,0 +1,219 @@
+<h5>角色面板</h5>
+<hr>
+<button class="btn btn-sm btn-success" name="saveVisual">保存</button>
+<br>
+<br>
+<input type="hidden" name="id" value="{id}">
+
+<div class="dark-form row" style="color: #a1a1a1">
+
+    <div class="col-sm-4">
+        <h6>基本属性</h6>
+        ID: <input class="form-control form-control-sm" name="visual[base-id]" value="{id}">
+        名称: <input class="form-control form-control-sm" name="visual[base-name]" value="{name}">
+        Расса: <input class="form-control form-control-sm" name="visual[base-race]" value="{race}">
+        职业: <select class="form-control form-control-sm" name="visual[base-cls]">{cls}</select>
+        性别: <select class="form-control form-control-sm" name="visual[base-gender]">{gender}</select>
+        配偶(а): <input class="form-control form-control-sm" name="visual[base-spouse]" value="{spouse}">
+        角色死亡: <select class="form-control form-control-sm" name="visual[status-var_data-dead_flag]">{dead_flag}</select>
+
+        <hr>
+
+        <h6>参数</h6>
+        属性点: <input class="form-control form-control-sm" name="visual[status-pp]" value="{pp}">
+        体质: <input class="form-control form-control-sm" name="visual[status-property-vitality]" value="{vitality}">
+        力量: <input class="form-control form-control-sm" name="visual[status-property-strength]" value="{strength}">
+        敏捷: <input class="form-control form-control-sm" name="visual[status-property-agility]" value="{agility}">
+        灵力： <input class="form-control form-control-sm" name="visual[status-property-energy]" value="{energy}">
+        元气: <select class="form-control form-control-sm" name="visual[status-property-max_ap]">{max_ap}</select>
+
+        <hr>
+
+        <h6>其他属性</h6>
+        级别: <input class="form-control form-control-sm" name="visual[status-meridian_data-lvl]"
+                        value="{meridian_data-lvl}">
+        直播点: <input class="form-control form-control-sm" name="visual[status-meridian_data-life_dot]"
+                            value="{meridian_data-life_dot}">
+        Мертвых точек: <input class="form-control form-control-sm" name="visual[status-meridian_data-die_dot]"
+                              value="{meridian_data-die_dot}">
+        Бесплатных улучшений: <input class="form-control form-control-sm" name="visual[status-meridian_data-free_up]"
+                                     value="{meridian_data-free_up}">
+        Платных улучшений: <input class="form-control form-control-sm" name="visual[status-meridian_data-paid_up]"
+                                  value="{meridian_data-paid_up}">
+        Дне авторизации: <input class="form-control form-control-sm" name="visual[status-meridian_data-login_days]"
+                                value="{meridian_data-login_days}">
+
+
+    </div>
+
+    <div class="col-sm-4">
+        <h6>角色状态</h6>
+        级别: <input class="form-control form-control-sm" name="visual[status-level]" value="{level}">
+        职业: <select class="form-control form-control-sm" name="visual[status-level2]">{level2}</select>
+        经验: <input class="form-control form-control-sm" name="visual[status-exp]" value="{exp}">
+        元神: <input class="form-control form-control-sm" name="visual[status-sp]" value="{sp}">
+        声望: <input class="form-control form-control-sm" name="visual[status-reputation]" value="{reputation}">
+        当前HP: <br> <input class="form-control-sm col-sm-5" name="visual[status-hp]" value="{hp}">总血量
+        <input class="form-control-sm col-sm-5" name="visual[status-property-max_hp]" value="{max_hp}">
+       当前MP: <br> <input class="form-control-sm col-sm-5" name="visual[status-mp]" value="{mp}"> 总蓝量 <input
+            class="form-control-sm col-sm-5" name="visual[status-property-max_mp]" value="{max_mp}">
+        世界时间: <input class="form-control form-control-sm" name="visual[status-pariah_time]" value="{pariah_time}">
+        仓库密码: <input class="form-control form-control-sm" name="visual[status-storehousepasswd]"
+                             value="{storehousepasswd}">
+        <hr>
+        <h6>角色的位置</h6>
+        地图ID: <input class="form-control form-control-sm" name="visual[status-worldtag]" value="{worldtag}">
+        坐标 X: <input class="form-control form-control-sm" name="visual[status-posx]" value="{posx}">
+        坐标 Y: <input class="form-control form-control-sm" name="visual[status-posy]" value="{posy}">
+        坐标 Z: <input class="form-control form-control-sm" name="visual[status-posz]" value="{posz}">
+
+    </div>
+
+    <div class="col-sm-4">
+
+        <h6>背包</h6>
+        格数: <input class="form-control form-control-sm" name="visual[pocket-capacity]" value="{pocket-capacity}">
+        金币: <input class="form-control form-control-sm" name="visual[pocket-money]" value="{pocket-money}">
+
+        <div>
+            <input class="form-control form-control-sm" type="hidden" data-name="packetItems"
+                   name="visual[pocket-items]" value="{pItems}">
+            {pocket-items}
+        </div>
+        <hr>
+
+        <h6>物品</h6>
+        <div>
+            {equipment-items}
+        </div>
+        <hr>
+
+        <h6>仓库</h6>
+        格数: <input class="form-control form-control-sm" name="visual[storehouse-capacity]"
+                       value="{storehouse-capacity}">
+        金币: <input class="form-control form-control-sm" name="visual[storehouse-money]" value="{storehouse-money}">
+        <hr>
+        <h6>物品</h6>
+
+        {status-skills}
+
+        pk_count: <input class="form-control form-control-sm" name="visual[status-var_data-pk_count]"
+        value="{pk_count}">
+
+        pvp_cooldown: <input class="form-control form-control-sm" name="visual[status-var_data-pvp_cooldown]"
+        value="{pvp_cooldown}">
+        pvp_flag: <input class="form-control form-control-sm" name="visual[status-var_data-pvp_flag]"
+        value="{pvp_flag}">
+    </div>
+
+
+    <!-- Редактор итема -->
+    <div class="modal show" id="pocketItem" tabindex="-1" role="dialog" aria-labelledby="pocketItemLabel"
+         aria-hidden="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pocketItemLabel">编辑一个项目</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label class="col-form-label"> ID Итема
+                        <input name='item[id]' class='form-control' type='text'>
+                    </label>
+                    <label class="col-form-label"> 位置
+                        <input name='item[pos]' class='form-control' type='text'>
+                    </label>
+                    <label class="col-form-label"> 数量
+                        <input name='item[count]' class='form-control' type='text'>
+                    </label>
+                    <label class="col-form-label"> 最大。 数量
+                        <input name='item[max_count]' class='form-control' type='text'>
+                    </label>
+                    <label class="col-form-label"> Окстет
+                        <input name='item[data]' class='form-control' type='text'>
+                    </label>
+                    <label class="col-form-label"> 绑定 <a class="badge badge-primary" href='javascript:void(0)' onclick="pTypeItem()" data-toggle="modal" data-target="#prototypeWin">Выбрать</a>
+                        <input name='item[proctype]' class='form-control' type='text'>
+                    </label>
+                    <label class="col-form-label">生活的时间
+                        <input name='item[expire_date]' class='form-control' type='text'>
+                    </label>
+                    <label class="col-form-label"> guid1
+                        <input name='item[guid1]' class='form-control' type='text'>
+                    </label>
+                    <label class="col-form-label"> guid2
+                        <input name='item[guid2]' class='form-control' type='text'>
+                    </label>
+                    <label class="col-form-label"> Маска
+                        <input name='item[mask]' class='form-control' type='text'>
+                    </label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-danger" id='acceptDel' data-dismiss="modal">删除
+                    <button type="button" class="btn btn-success" id='acceptSave' data-dismiss="modal">修改
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="prototypeWin" tabindex="-1" role="dialog" aria-labelledby="prototypeLabel"
+         aria-hidden="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="prototypeLabel">绑定一个物品</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="关闭">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="color: #b6babf">
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_1' value='1'/> 死亡保护
+                        персонажа</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_2' value='2'/> Не возможно
+                        выбросить</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_4' value='4'/> Не возможно
+                        продать</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_8' value='8'/> Нельзя
+                        выкинуть</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_16' value='16'/> Нельзя передать игроку</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_32' value='32'/> Нельзя
+                        улучшить</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_64' value='64'/> Символ
+                        сохранения</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_128' value='128'/> Не поместить на
+                        склад</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_256' value='256'/> Исчезает при выходе
+                        из текущей локации</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_512' value='512'/> Авто использование
+                        при получении</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_1024' value='1024'/> Исчезает при
+                        гибели</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_2048' value='2048'/> Исчезает при
+                        выходе</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_4096' value='4096'/> Нельзя
+                        отремонтировать</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_8192' value='8192'/> Нанесен
+                        урон</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_16384' value='16384'/> Невозможно
+                        поместить на склад учетной записи</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_32768' value='32768'/> Предмет привязан
+                        к персонажу</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_65536' value='65536'/> 你可以出售寻找宝藏</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='mask_131072' value='131072'/> Товар со спец покупок</label><br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" id="accept" class="btn btn-primary" data-dismiss="modal">申请</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<br>
+<button class="btn btn-sm btn-success" name="saveVisual">保存</button>

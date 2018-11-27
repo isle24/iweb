@@ -1,0 +1,218 @@
+服务器状态: {status}<br>
+账号: {accounts}<br>
+在线人数: {online} <br>
+<hr>
+
+<div class="dark-form">
+    <h6>在线列表</h6>
+    <table data-toggle="datatable" class="table table-dark">
+        <thead>
+        <tr>
+            <th>账号ID</th>
+            <th>角色ID</th>
+            <th>名称</th>
+            <th width="45%">管理</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {online_users}
+        </tbody>
+    </table>
+    <hr>
+    <h6>账号列表</h6>
+    <table data-toggle="datatable" class="table table-dark">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>账号</th>
+            <th>邮件</th>
+            <th>权限</th>
+            <th>创建时间</th>
+            <th>管理</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {accounts_list}
+        </tbody>
+    </table>
+
+
+    <!-- 可视化-->
+    <div class="modal show" id="getChar" tabindex="-1" role="dialog" aria-labelledby="getCharLabel" aria-hidden="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="getCharLabel">人物列表</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="charListModal"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 黄金 -->
+    <div class="modal show" id="addCash" tabindex="-1" role="dialog" aria-labelledby="addCashLabel" aria-hidden="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCashLabel">元宝充值</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span style='color: #6e8385'>补充之后，回到角色！</span>
+                    <input name='goldCountSend' class='form-control' type='text' placeholder='元宝的数量'>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-success" id='acceptGold' data-dismiss="modal">充值元宝
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Бан -->
+    <div class="modal show" id="ban" tabindex="-1" role="dialog" aria-labelledby="banLabel" aria-hidden="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="banLabel">停封人物</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input name='banTime' class='form-control' type='text' placeholder='时间以秒为单位'>
+                    <input name='banReason' class='form-control' type='text' placeholder='原因'>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-success" id='acceptBan' data-dismiss="modal">确定
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GM -->
+    <div class="modal show" id="editGM" tabindex="-1" role="dialog" aria-labelledby="editGMLabel" aria-hidden="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editGMLabel">定制GM权利</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <button name='selectall' class='btn btn-sm btn-outline-success'>全选</button>
+
+                    <button name='unselectall' class='btn btn-sm btn-outline-danger'>全部删除</button>
+
+                    <br>
+                    <br>
+
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-0' value='0'> 0 - 切换显示昵称</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-1' value='1'> 1 - ГМ
+                        Инвиз</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-2' value='2'> 2 - 切换网络状态</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-3' value='3'> 3 - 切换对话选项</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-4' value='4'> 4 - 去角色</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-5' value='5'> 5 - 传送到 他自己</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-6' value='6'> 6 - 通用传送</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-7' value='7'> 7 - 传送
+                        NPS</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-8' value='8'> 8 - 通用传送
+                        2</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-9' value='9'> 9 - 提高速度</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-10' value='10'> 10 - 当心
+                        播放机</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-11' value='11'> 11 - 字符在线</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-100' value='100'> 100 - 极限
+                        人物</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-101' value='101'> 101 -禁止
+                        聊天</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-102' value='102'> 102 - 禁止议价</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-103' value='103'> 103 - 禁止
+                        出售</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-104' value='104'> 104 - GM
+                        聊</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-105' value='105'> 105 - 停止
+                        服务器</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-200' value='200'> 200 - 召唤小怪</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-201' value='201'> 201 - 呼唤
+                        分散</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-202' value='202'> 202 -
+                        伪装</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-203' value='203'> 203 - GM
+                        管理员</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-204' value='204'> 204 - 双倍的经验</label><br>
+
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-205' value='205'> 205 - 并发
+                        连接</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-206' value='206'> 206 -发电机
+                        怪物</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-207' value='207'> 207 - 禁止招标</label><br>
+
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-208' value='208'> 208 - 禁令
+                        拍卖</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-209' value='209'> 209 - 禁止邮件</label><br>
+
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-210' value='210'> 210 - 禁止帮派</label><br>
+
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-211' value='211'> 211 - 双倍金币</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-212' value='212'> 212 - 双倍的经验</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-213' value='213'> 213 - 双倍元神</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-214' value='214'> 214 - 禁令销售卡和PVP</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-501' value='501'> 501 - 变化信息</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-502' value='502'> 502 - 节目状态</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-503' value='503'> 503 - 显示日志</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-504' value='504'> 504 - 重启服务器</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-505' value='505'> 505 - 重启数据库</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-506' value='506'> 506 - 显示adi
+                        播放机</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-507' value='507'> 507 - 活动玩家信息</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-508' value='508'> 508 - 活动人物状态</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-509' value='509'> 509 -
+                        Present</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-510' value='510'> 510 -
+                        GetUserForbids</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-511' value='511'> 511 -
+                        GetUserCardused</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-512' value='512'> 512 - 发元宝
+                        игроку</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-513' value='513'> 513 - 更新人物</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-514' value='514'> 514 - 修改人物信息的名称</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-515' value='515'> 515 - 更新人物信息的名称</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-516' value='516'> 516 - Кикнуть
+                        игрока</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-517' value='517'> 517 -
+                        GetRoleList</label><br>
+                    <label><input type='checkbox' class='custom-checkbox' name='gm-518' value='518'> 518 - 更新帐户密码</label><br>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-success" id='addGM' data-dismiss="modal">建立GM 权利
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

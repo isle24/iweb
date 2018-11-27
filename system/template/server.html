@@ -1,0 +1,148 @@
+<h5>服务器管理</h5>
+<hr>
+<div class="row">
+    <div class="col-sm-6">
+        <h6>内存</h6>
+        <span><span style="color: #6e8385;">总计：</span> {all} МB</span> <span class="float-right"><span style="color: #6e8385;">剩余:</span> {free} МB</span>
+        <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" style="width:{use_proc}%" aria-valuenow="{use}" aria-valuemin="0" aria-valuemax="100"></div>
+            <span style="position: absolute; width: 100%" class="text-center">{use}mb - {use_proc}%</span>
+        </div>
+        <br>
+        <h6>交换</h6>
+        <span><span style="color: #6e8385;">总计:</span> {swap_all} МB</span> <span class="float-right"><span style="color: #6e8385;">剩余:</span> {swap_free} МB</span>
+        <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" style="width:{swap_use_proc}%" aria-valuenow="{swap_use}" aria-valuemin="0" aria-valuemax="100"></div>
+            <span style="position: absolute; width: 100%" class="text-center">{swap_use}mb - {swap_use_proc}%</span>
+        </div>
+
+        <br>
+
+        <table class="table table-dark">
+
+            <thead>
+            <tr style="font-weight: bold">
+                <td>名称</td>
+                <td>CPU</td>
+                <td>使用率</td>
+                <td>数量</td>
+                <td class="text-right">状态</td>
+            </tr>
+            </thead>
+
+            <tr>
+                <td>auth</td>
+                <td>{auth_cpu}%</td>
+                <td>{auth_mem}%</td>
+                <td>{auth_count}</td>
+                <td class="text-right">{auth}</td>
+            </tr>
+
+            <tr>
+                <td>gacd</td>
+                <td>{gacd_cpu}%</td>
+                <td>{gacd_mem}%</td>
+                <td>{gacd_count}</td>
+                <td class="text-right">{gacd}</td>
+            </tr>
+
+            <tr>
+                <td>gdeliveryd</td>
+                <td>{gdeliveryd_cpu}%</td>
+                <td>{gdeliveryd_mem}%</td>
+                <td>{gdeliveryd_count}</td>
+                <td class="text-right">{gdeliveryd}</td>
+            </tr>
+
+            <tr>
+                <td>gameddb</td>
+                <td>{gameddb_cpu}%</td>
+                <td>{gameddb_mem}%</td>
+                <td>{gameddb_count}</td>
+                <td class="text-right">{gameddb}</td>
+            </tr>
+
+            <tr>
+                <td>gfactiond</td>
+                <td>{gfactiond_cpu}%</td>
+                <td>{gfactiond_mem}%</td>
+                <td>{gfactiond_count}</td>
+                <td class="text-right">{gfactiond}</td>
+            </tr>
+
+            <tr>
+                <td>glinkd</td>
+                <td>{glinkd_cpu}%</td>
+                <td>{glinkd_mem}%</td>
+                <td>{glinkd_count}</td>
+                <td class="text-right">{glinkd}</td>
+            </tr>
+
+            <tr>
+                <td>logservice</td>
+                <td>{logservice_cpu}%</td>
+                <td>{logservice_mem}%</td>
+                <td>{logservice_count}</td>
+                <td class="text-right">{logservice}</td>
+            </tr>
+
+            <tr>
+                <td>uniquenamed</td>
+                <td>{uniquenamed_cpu}%</td>
+                <td>{uniquenamed_mem}%</td>
+                <td>{uniquenamed_count}</td>
+                <td class="text-right">{uniquenamed}</td>
+            </tr>
+
+            <tr>
+                <td>gs</td>
+                <td>{gs_cpu}%</td>
+                <td>{gs_mem}%</td>
+                <td>{gs_count}</td>
+                <td class="text-right">{gs}</td>
+            </tr>
+
+        </table>
+        <div class="center">
+            <button name="startServer" class="btn btn-sm btn-success">启动</button>
+            <button name="stopServer" class="btn btn-sm btn-danger">关闭</button>
+            <button name="restartServer" class="btn btn-sm btn-warning">重启</button>
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="dark-form">
+            <input class="form-control" type="text" name="chatMsg" placeholder="聊天消息">
+            <button class="btn btn-success float-right col-sm-6" name="sendChatMsg"> 发送消息 </button>
+            <select class="form-control col-sm-6" name="chatChanel">
+                <option value="9">系统</option>
+                <option value="0">普通</option>
+                <option value="1">世界</option>
+                <option value="2">组队</option>
+                <option value="3">帮派</option>
+                <option value="7">交易</option>
+                <option value="11">附近</option>
+                <option value="12">号角</option>
+                <option value="13">战场</option>
+                <option value="14">国家</option>
+                <option value="15">跨服号角</option>
+            </select>
+        </div>
+        <br><br>
+        <br><br>
+        <div  style="overflow-y: scroll; height: 500px; width: 100%">
+        <table class="table table-dark">
+            <thead>
+            <tr style="font-weight: bold">
+                <td>名称</td>
+                <td>CPU</td>
+                <td>使用率</td>
+            </tr>
+            </thead>
+            <tbody>
+            {listStarted}
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
