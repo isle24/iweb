@@ -35,7 +35,7 @@ git clone https://github.com/isle24/iweb.git
 git pull
 ```
 
-1.2 如果不使用 git 可以下载 WeChatDeveloper 并解压到项目中
+1.2 如果不使用 git 可以下载 iweb 并解压到项目中
 ```shell
 
 # 在项目中解压
