@@ -20,7 +20,7 @@ iweb for PHP
 代码仓库
 ----
 iweb 为开源项目，允许把它用于任何地方，不受任何约束，欢迎 fork 项目。
-* Gitee 托管地址：*
+* Gitee 托管地址： https://gitee.com/isle/iweb
 * GitHub 托管地址：https://github.com/isle24/iweb
 
 
