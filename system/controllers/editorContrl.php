@@ -42,6 +42,8 @@ class editorContrl
                         else
                             $itemDesk = "";
                         $pocketItems .= "<img style='padding: 3px' onclick='editPocketItem($key)' data-key='$key' data-target=\"#pocketItem\"  data-tip=\"tooltip\"  data-toggle=\"modal\" title='<b>" . $elItem['name'] . "</b><br>" . $itemDesk . "' src='" . config::$site_adr . "/index.php?function=icon&name={$elItem['icon']}' />";
+                    
+                       // var_dump($item->id);die;
                     }
                     $pItems = htmlspecialchars(json_encode($newArr));
                 }
@@ -50,14 +52,15 @@ class editorContrl
             if (count($role->equipment->items) > 0) {
                 foreach ($role->equipment->items as $item) {
                     $elItem = editorModel::getItemFromElement($item->id);
-                    if (isset($desk[$item->id]))
+                    if (isset($desk[$item->id])){
                         $itemDesk = func::reColorDesc($desk[$item->id]);
-                    else
-                        $itemDesk = "";
+                    }else{
+                    $itemDesk = "";
                     $equipmentItems .= "<img style='padding: 3px' data-tip=\"tooltip\" title='<b>" . $elItem['name'] . "</b><br>" . $itemDesk . "' src='" . config::$site_adr . "/index.php?function=icon&name={$elItem['icon']}' />";
+                        }
+                    }
                 }
-            }
-
+        
             stream::putRead($role->status->skills);
             $skills = new roleSkills();
             $skills->count = stream::readInt32(false);
@@ -76,14 +79,20 @@ class editorContrl
             if ($role->status->skills->count > 0) {
                 foreach ($role->status->skills->skills as $item) {
                     if (isset($s[$item->id]['icon']))
-                        $image = dir . "/system/data/icons_skills/" . base64_decode($s[$item->id]['icon']) . ".png";
-                    else
+                    {
+                       $image = dir . "/system/data/icons_skills/" . base64_decode($s[$item->id]['icon']) . ".png"; 
+                       $image = iconv('UTF-8','GB2312',$image);
+                    } else{
                         $image = dir . "/system/data/icons_skills/unknown.png";
+                    }
                     if (file_exists($image)) {
-                        $src = 'data: ' . mime_content_type($image) . ';base64,' . base64_encode(file_get_contents($image));
+                        //$src = 'data: ' . mime_content_type($image) . ';base64,' . base64_encode(file_get_contents($image));
+                        $src = func::base64EncodeImage($image);
                         $statusSkills .= "<img data-toggle=\"tooltip\" title='' style='padding: 3px' src='$src' />";
                     } else {
-                        $statusSkills .= "$image ";
+                       // $statusSkills .= "$image ";
+                        $src = func::base64EncodeImage($image);
+                        $statusSkills .= "<img data-toggle=\"tooltip\" title='' style='padding: 3px' src='$src' />";
                     }
                 }
             }

@@ -53,7 +53,7 @@ class GMRoleData
         stream::writeString($reason);
         stream::pack(0x168);
         if (stream::Send(config::$serverIP, config::$gdeliverydPort)){
-            system::jms('success', "角色字符与服务器断开连接！");
+            system::jms('success', "角色与服务器断开连接！");
         }else
             system::jms('error', "连接到服务器时出错！");
 

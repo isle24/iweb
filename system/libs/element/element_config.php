@@ -14,7 +14,8 @@ class element_config
     static function get_config()
     {
         $t[] = "";
-        $read = fopen(dir . "/system/data/element_configs/" . element::$version . ".cfg", "r");
+	    $read = fopen(dir . "/system/data/element_configs/145.cfg", "r");
+       // $read = fopen(dir . "/system/data/element_configs/" . element::$version . ".cfg", "r");
       //  $read = fopen("/iweb/system/data/element_configs/" . element::$version . ".cfg", "r");
         self::$lists = fgets($read);
         self::$dialog_list = fgets($read);

@@ -32,7 +32,7 @@ class func
                 }
                 fclose($file);
             } else {
-                self::$error = "我无法读取带有图标名称的文件";
+                self::$error = "无法读取带有图标名称的文件";
             }
         } else {
             self::$error = "无法得到照片";
@@ -66,7 +66,7 @@ class func
             $result = ob_get_clean();
             $icons[$value] = array('icon' => $result);
             if (!database::query("INSERT INTO `iconItems` (`name`, `icon`) VALUES ('" . $value . "', '" . database::escape($result) . "')"))
-                self::$error = "Ошибка загрузки в базу";
+                self::$error = "数据库查询错误!";
             $i++;
         }
         if (empty(self::$error)) {
@@ -162,6 +162,15 @@ class func
         $string = htmlspecialchars(str_replace('\r', "<br/>", $string));
         return $string;
     }
+    
+    
+    static function base64EncodeImage ($image_file) {
+        $base64_image = '';
+        $image_info = getimagesize($image_file);
+        $image_data = fread(fopen($image_file, 'r'), filesize($image_file));
+        $base64_image = 'data:' . $image_info['mime'] . ';base64,' . chunk_split(base64_encode($image_data));
+        return $base64_image;
+        }
 
 
 }

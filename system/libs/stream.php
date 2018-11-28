@@ -135,7 +135,6 @@ class stream
 
         $result = substr(self::$readData, self::$p, $size);
         self::$p += $size;
-        //var_dump($result);die;
         $result = iconv("UTF-16LE", "UTF-8", $result);
        // $result = stream::array_iconv($result);
         return $result;

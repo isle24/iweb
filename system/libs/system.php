@@ -226,7 +226,6 @@ class system
 
                     case "icon":
                         if (isset($_GET['name'])) $name = $_GET['name']; else $name = 'unknown.dds';
-
                         if (database::query("SELECT * FROM iconItems WHERE name='{$name}'")) {
                             if (database::num() > 0) {
                                 $icon = database::assoc();
@@ -242,7 +241,7 @@ class system
                     case "goreadelement":
                         if (config::$users[$_SESSION['id']]['username'] == $_SESSION['user'] && config::$users[$_SESSION['id']]['permission']['settings'] == true) {
                             element::read();
-                        } else system::jms("info", "У вас нет доступа к данной функции");
+                        } else system::jms("info", "您无权访问此功能");
                         break;
 
                     case "gouploadicon":

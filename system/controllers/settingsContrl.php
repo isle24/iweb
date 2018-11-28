@@ -23,12 +23,12 @@ class settingsContrl
             $icons = database::query("SELECT * FROM iconItems");
 
             if (file_exists(dir . "/system/data/iconlist_ivtrm.png"))
-                $statusPngIcons = "<span style='color: green'>会发现</span>";
-            else $statusPngIcons = "<span style='color: red'>不会找到</span>";
+                $statusPngIcons = "<span style='color: green'>文件存在</span>";
+            else $statusPngIcons = "<span style='color: red'>不存在</span>";
 
             if (file_exists(dir . "/system/data/iconlist_ivtrm.txt"))
-                $statusTxtIcons = "<span style='color: green'>会发现</span>";
-            else $statusTxtIcons = "<span style='color: red'>不会找到т</span>";
+                $statusTxtIcons = "<span style='color: green'>文件存在</span>";
+            else $statusTxtIcons = "<span style='color: red'>不存在</span>";
 
             system::load("settings");
             system::set("{items_count}", database::num($items));

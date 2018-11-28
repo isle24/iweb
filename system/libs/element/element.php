@@ -55,7 +55,6 @@ class element
         element_config::get_config();
         $readErr = 0;
         $count_lists = count(element_config::$source_config);
-
         for ($list = 0; $list < $count_lists; $list++) {
             if ($list == 20) {
                 $head = substr(self::$element, self::$p, 4);
@@ -79,6 +78,7 @@ class element
             }
             $count_items = rtype::int32();
             for ($item = 0; $item < $count_items; $item++) {
+                
                 foreach (element_config::$source_config[$list][4] as $key => $value) {
                     if ($list != element_config::$dialog_list) {
                         self::$data[$list][$item][$key] = rtype::getValue($value);
@@ -101,6 +101,7 @@ class element
                         }
                     }
                 }
+
                 if (isset(self::$data[$list][$item]['icon'])) {
                     $icon = str_replace("\\", "/", self::$data[$list][$item]['icon']);
                     if (!database::query("INSERT INTO items (itemID, itemName, itemIcon, itemList) VALUES ('" . self::$data[$list][$item]['ID'] . "','" . database::escape(self::$data[$list][$item]['Name']) . "','" . $icon . "', '" . $list . "')")) {

@@ -125,8 +125,8 @@ class serverModel
                 $data['idChar'] = $user->roleid;
                 self::mail($data, true);
             }
-            system::log("邮局向所有人发送邮件");
-            system::jms("success", "邮局发送了邮件" . $online->count . " 角色(у/ам)");
+            system::log("向所有人发送邮件");
+            system::jms("success", "发送了邮件" . $online->count . " 到角色");
         }
 
     }
@@ -235,7 +235,7 @@ class serverModel
         ssh::stop();
 
         if (empty(ssh::$error)) {
-            system::jms("success", "发送了命令,关闭服务器");
+            system::jms("success", "发送了一个命令,关闭服务器");
             system::log("关闭服务器");
         } else
             system::jms("danger", ssh::$error);
